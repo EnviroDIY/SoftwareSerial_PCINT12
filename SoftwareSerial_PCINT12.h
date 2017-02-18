@@ -29,8 +29,8 @@ The latest version of this library can always be found at
 http://arduiniana.org.
 */
 
-#ifndef SoftwareSerialMod_h
-#define SoftwareSerialMod_h
+#ifndef SoftwareSerial_PCINT12_h
+#define SoftwareSerial_PCINT12_h
 
 #include <inttypes.h>
 #include <Stream.h>
