@@ -41,7 +41,7 @@ http://arduiniana.org.
 #include <avr/interrupt.h>
 #include <avr/pgmspace.h>
 #include <Arduino.h>
-#include <SoftwareSerialMod.h>
+#include "SoftwareSerial_PCINT12.h"
 //
 // Lookup table
 //
