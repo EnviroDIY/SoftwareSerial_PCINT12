@@ -1,11 +1,11 @@
 /*
-SoftwareSerialMod.h (formerly NewSoftSerial.h) - 
+SoftwareSerialMod.h (formerly NewSoftSerial.h) -
 Multi-instance software serial library for Arduino/Wiring
 -- Interrupt-driven receive and other improvements by ladyada
    (http://ladyada.net)
 -- Tuning, circular buffer, derivation from class Print/Stream,
    multi-instance support, porting to 8MHz processors,
-   various optimizations, PROGMEM delay tables, inverse logic and 
+   various optimizations, PROGMEM delay tables, inverse logic and
    direct port writing by Mikal Hart (http://www.arduiniana.org)
 -- Pin change interrupt macros by Paul Stoffregen (http://www.pjrc.com)
 -- 20MHz processor support by Garrett Mace (http://www.macetech.com)
@@ -28,6 +28,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 The latest version of this library can always be found at
 http://arduiniana.org.
 */
+
+#ifndef SoftwareSerial_h
+#warning "DO NOT IMPORT BOTH SoftwareSerial_h AND SoftwareSerial_PCINT12_h!"
+#warning "IMPORTING BOTH WILL CAUSE ERRORS!"
+#warning "YOU HAVE BEEN WARNED!"
+#endif
 
 #ifndef SoftwareSerial_PCINT12_h
 #define SoftwareSerial_PCINT12_h
@@ -63,7 +69,7 @@ private:
   uint16_t _inverse_logic:1;
 
   // static data
-  static char _receive_buffer[_SS_MAX_RX_BUFF]; 
+  static char _receive_buffer[_SS_MAX_RX_BUFF];
   static volatile uint8_t _receive_buffer_tail;
   static volatile uint8_t _receive_buffer_head;
   static SoftwareSerialMod *active_object;
@@ -93,7 +99,7 @@ public:
   virtual int read();
   virtual int available();
   virtual void flush();
-  
+
   using Print::write;
 
   // public only for easy access by interrupt handlers
