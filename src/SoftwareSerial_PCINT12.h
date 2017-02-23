@@ -29,11 +29,8 @@ The latest version of this library can always be found at
 http://arduiniana.org.
 */
 
-// Check if the standard SoftwareSerial has been imported
-#ifndef SoftwareSerial_h
-// Do nothing, simply don't import  (equivalent to silent fail!)
 
-#elif SoftwareSerial_PCINT12_h
+#ifndef SoftwareSerial_PCINT12_h
 #define SoftwareSerial_PCINT12_h
 
 #include <Arduino.h>
