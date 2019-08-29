@@ -53,8 +53,8 @@ class SoftwareSerial : public Stream
 {
 private:
   // per object data
-  uint8_t _receivePin;
-  uint8_t _receiveBitMask;
+  int8_t _receivePin;
+  int8_t _receiveBitMask;
   volatile uint8_t *_receivePortRegister;
   uint8_t _transmitBitMask;
   volatile uint8_t *_transmitPortRegister;
@@ -79,8 +79,8 @@ private:
   // private methods
   inline void recv() __attribute__((__always_inline__));
   uint8_t rx_pin_read();
-  void setTX(uint8_t transmitPin);
-  void setRX(uint8_t receivePin);
+  void setTX(int8_t transmitPin);
+  void setRX(int8_t receivePin);
   inline void setRxIntMsk(bool enable) __attribute__((__always_inline__));
 
   // Return num - sub, or 1 if the result would be < 1
@@ -91,7 +91,7 @@ private:
 
 public:
   // public methods
-  SoftwareSerial(uint8_t receivePin, uint8_t transmitPin, bool inverse_logic = false);
+  SoftwareSerial(int8_t receivePin, int8_t transmitPin, bool inverse_logic = false);
   ~SoftwareSerial();
   void begin(long speed);
   bool listen();
